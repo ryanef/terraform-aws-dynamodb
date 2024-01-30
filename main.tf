@@ -18,11 +18,9 @@ resource "aws_dynamodb_table" "table" {
     enabled        = var.ttl_enabled
   }
 
-
-
   tags = {
     Name        = "${var.table_name}-${var.environment}"
-   
+    Environment = "dynamodb-${var.environment}"
   }
 }
 
