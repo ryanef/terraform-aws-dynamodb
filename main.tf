@@ -13,9 +13,12 @@ resource "aws_dynamodb_table" "table" {
     type = "S"
   }
 
-  ttl {
-    attribute_name = "TimeToExist"
-    enabled        = var.ttl_enabled
+  dynamic "ttl"  {
+    for_each = var.ttl
+    content {
+      attribute_name = ttl.value["attribute_name"]
+      enabled        = ttl.value["enabled"]
+    }
   }
 
   tags = {

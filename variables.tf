@@ -12,6 +12,9 @@ variable "hash_key" {
   default = "pk"
   type = string
 }
+variable "ttl"  {
+  default = [{attribute_name= "TimeToExist", enabled=false}]
+}
 
 
 variable "range_key" {
