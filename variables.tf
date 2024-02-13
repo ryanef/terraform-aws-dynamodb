@@ -12,18 +12,11 @@ variable "hash_key" {
   default = "pk"
   type = string
 }
-variable "ttl"  {
-  default = [{attribute_name= "TimeToExist", enabled=false}]
-}
-
 
 variable "range_key" {
   default = "sk"
   type = string
 }
-
-
-
 variable "attribute_type"{
   default = "S"
 }
@@ -31,6 +24,10 @@ variable "attribute_type"{
 variable "ttl_enabled" {
   default = false
   type = bool
+}
+
+variable "ttl" {
+   default = [{attribute_name= "TimeToExist", enabled=false}]
 }
 
 variable "environment" {
